@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@swarupbaidya46/common-blog": "^1.0.0",
+    "axios": "^1.6.8"
+  }
+}
