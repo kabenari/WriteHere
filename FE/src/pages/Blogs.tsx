@@ -1,26 +1,29 @@
 import { Appbar } from "@/components/Appbar"
 import BlogCard from "@/components/BlogCard"
+import { useBlogs } from "@/hooks"
 
 export const Blogs = () => {
+
+  const { blogs, loading } = useBlogs();
+
+  if (loading) {
+    return <div>
+      ....loading
+    </div>
+  }
+
   return (<div>
-    <Appbar authorname="swarup"/>
+    <Appbar authorname="swarup" />
     <div className="flex justify-center">
       <div className="max-w-xl">
-      <BlogCard authorName ={"swarup"}
-      authorId={"98797"} 
-      content = {"hi this is form swarup the hitman"}
-      publisheDate ={"23/10/2025"}
-      title = {"a way from the future"}/>
-      <br className=""/>
-      <BlogCard authorName ={"swarup"}
-      authorId={"98797"} 
-      content = {"hi this is form swarup the hitman"}
-      publisheDate ={"23/10/2025"}
-      title = {"a way from the future"}/>
-      <br className=""/>
+        {blogs.map(blogs => <BlogCard authorName={"swarup"}
+          authorId={blogs.authorId}
+          content={blogs.content}
+          publisheDate={"23/10/2025"}
+          title={blogs.title} />)}
       </div>
     </div>
-    </div>
+  </div>
   )
 }
 
