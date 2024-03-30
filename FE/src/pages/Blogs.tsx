@@ -1,5 +1,5 @@
 import { Appbar } from "@/components/Appbar"
-import BlogCard from "@/components/BlogCard"
+import BlogCard, { BlogCardNew } from "@/components/BlogCard"
 import { useBlogs } from "@/hooks"
 
 export const Blogs = () => {
@@ -15,8 +15,8 @@ export const Blogs = () => {
   return (<div>
     <Appbar authorname="swarup" />
     <div className="flex justify-center">
-      <div className="max-w-xl">
-        {blogs.map(blogs => <BlogCard authorName={"swarup"}
+      <div className="max-w-screen">
+        {blogs.map(blogs => <BlogCardNew id={blogs.id} authorName={"swarup"}
           authorId={blogs.authorId}
           content={blogs.content}
           publisheDate={"23/10/2025"}
